@@ -1,0 +1,84 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Drone Position Mapper";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div id="map" style="height: 500px;"></div>
+
+<script>
+    var map = L.map('map').setView([22.4868527, 88.350944], 17); // initial map position
+    const droneIconUrl = 'https://static.vecteezy.com/system/resources/previews/012/104/982/non_2x/drone-icon-transparent-free-png.png';
+    const droneIcon = L.icon({
+        iconUrl: droneIconUrl,
+        iconSize: [40, 40], 
+        iconAnchor: [16, 16], 
+        popupAnchor: [0, -16],
+    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    var latitude = 22.4868527; 
+    var longitude = 88.350944; 
+    let markerValue;
+    let line1 = null;
+    let line2 = null;
+    let line3 = null;
+    let line4 = null;
+    var plotCount = 0;
+    //update the map with new GPS data
+    function updateMap() {
+        map.setView([latitude, longitude], map.getZoom());
+        markerValue = L.marker([latitude, longitude], { icon: droneIcon }).addTo(map).bindPopup('Lat:' + latitude + ', long: ' + longitude).openPopup();
+
+    }
+
+    function getRandomCoordinate() {
+        latitude = latitude + (((Math.random() * 180) - 90)/100000);
+        longitude = longitude + (((Math.random() * 360) - 180) / 100000);
+    }
+
+    function removeMarker() {
+        if (markerValue) {
+            map.removeLayer(markerValue);
+            markerValue = null;
+        }
+    }
+    function removePlot() {
+        if (line1 && line2 && line3 && line4) {
+            map.removeLayer(line1);
+            map.removeLayer(line2);
+            map.removeLayer(line3);
+            map.removeLayer(line4);
+            line1 = null;
+            line2 = null;
+            line3 = null;
+            line4 = null;
+            plotCount = 0;
+        }
+    }
+    function plotLogic(lineCoordinates){
+        if (plotCount == 1)
+            line1 = L.polyline(lineCoordinates, { color: 'red' }).addTo(map);
+        else if (plotCount == 2)
+            line2 = L.polyline(lineCoordinates, { color: 'blue' }).addTo(map);
+        else if (plotCount == 3)
+            line3 = L.polyline(lineCoordinates, { color: 'green' }).addTo(map);
+        else
+            line4 = L.polyline(lineCoordinates, { color: 'red' }).addTo(map);
+    }
+
+    function simulateRealTimeGPS() {
+        //removePlot();
+        ++plotCount;
+        removeMarker();
+        const startPoint = [latitude, longitude];
+        getRandomCoordinate();
+        const endPoint = [latitude, longitude];
+        const lineCoordinates = [startPoint, endPoint];
+        updateMap();
+        plotLogic(lineCoordinates);
+        
+        setTimeout(simulateRealTimeGPS, 2000); // Update every 2 seconds
+    }
+    simulateRealTimeGPS();
+</script>
