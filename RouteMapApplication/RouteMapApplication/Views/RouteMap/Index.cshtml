@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Drone Position Mapper";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div id="map" style="height: 500px;border-radius:15px;"></div>
+<div id="coordinates">
+    <b>Latitude:</b> <span id="latitude"></span>, <b>Longitude:</b> <span id="longitude"></span>
+</div>
+
+@section scripts {
+    <script>
+        var lat = 22.4868527; //initial latitude
+        var lng = 88.350944; //initial longitude
+        let line = null;
+        var map = L.map('map').setView([lat, lng], 17);
+        const droneIconUrl = 'https://static.vecteezy.com/system/resources/previews/012/104/982/non_2x/drone-icon-transparent-free-png.png';
+        const droneIcon = L.icon({
+            iconUrl: droneIconUrl,
+            iconSize: [40, 40],
+            iconAnchor: [16, 16],
+            popupAnchor: [0, -16],
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        var markerValue = L.marker([lat, lng], { icon: droneIcon }).addTo(map);
+
+        // Function to update the map with new coordinates
+        function updateMap() {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetCoordinates", "RouteMap")",
+                dataType: "json",
+                success: function (data) {
+                    //removePlot();
+                    const startPoint = [lat, lng];
+                    const endPoint = [data.latitude, data.longitude];
+                    lat = data.latitude;
+                    lng = data.longitude;
+                    const lineCoordinates = [startPoint, endPoint];
+                    line = L.polyline(lineCoordinates, { color: 'red' }).addTo(map);
+                    updateView(lat, lng);
+                    $("#latitude").text(lat);
+                    $("#longitude").text(lng);
+                },
+                complete: function () {
+                    setTimeout(updateMap, 2000);
+                }
+            });
+        }
+
+        function updateView(latitude, longitude) {
+            map.setView([latitude, longitude], map.getZoom());
+            if (markerValue) {
+                map.removeLayer(markerValue);
+                markerValue = null;
+            }
+            markerValue = L.marker([latitude, longitude], { icon: droneIcon }).addTo(map);
+        }
+        function removePlot() {
+            if (line) {
+                map.removeLayer(line);
+                line = null;
+            }
+        }
+
+        updateMap();
+    </script>
+}
