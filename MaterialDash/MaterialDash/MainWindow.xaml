@@ -1,0 +1,106 @@
+﻿<Window x:Class="MaterialDash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1024" AllowsTransparency="True" WindowStyle="None"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local="clr-namespace:MaterialDash"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Height="45" VerticalAlignment="Top" Background="#FF171616" Orientation="Horizontal" Width="1024">
+
+            <Image Width="90" Height="37" Margin="5,0,0,0" Source="J:\G drive backup\Samannoy\IEM\Startup\WPF VS\MaterialDash\MaterialDash\Nexas-Logo.bmp"/>
+            <Button Content="Action" Width="72" Height="30" Margin="5,0,0,0" Click="Toggle_Display">
+
+            </Button>
+            <Button Content="Data" Width="62" Margin="5,0,0,0" Height="30">
+
+            </Button>
+            <Button Content="Setup" Margin="5,0,0,0" Width="72" Height="30" Click="Button_Click">
+
+            </Button>
+            <Button Content="Controls" Margin="5,0,0,0" Width="85" Height="30">
+
+            </Button>
+            <Button Content="Simulate" Margin="5,0,0,0" Width="88" Height="30">
+
+            </Button>
+            <ComboBox x:Name="comboBoxCOMPorts" Text="-- Select Port -- " HorizontalAlignment="Left" Margin="300,0,10,0" VerticalAlignment="Center" Width="105" IsEditable="True" IsReadOnly="True" Background="#FF72A1B9" FontWeight="Bold" Height="30" Foreground="Black"/>
+            <Button x:Name="btnConnect"  Content="Connect" Margin="0,0,0,0" VerticalAlignment="Center" Height="30" Width="105" Click="btnConnect_Click"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Height="215" Margin="0,45,0,0" VerticalAlignment="Top" Width="1024" Orientation="Horizontal" Background="#FF424040">
+            <materialDesign:Card Width="200" Height="200" Margin="5,0,0,0">
+                <Grid x:Name="RenderChart1" Width="200"/>
+            </materialDesign:Card>
+            <materialDesign:Card Width="200" Height="200" Margin="4,0,0,0">
+                <Grid x:Name="RenderChart2" Width="200"/>
+            </materialDesign:Card>
+            <materialDesign:Card Width="200" Height="200" Margin="4,0,0,0">
+                <Grid Width="200">
+                    <local:Gauge1 x:Name="gaugeControl" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" Margin="10"/>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Width="200" Height="200" Margin="4,0,0,0">
+                <Grid x:Name="RenderChart4" Width="200"/>
+            </materialDesign:Card>
+            <materialDesign:Card Width="200" Height="200" Margin="4,0,0,0">
+                <Grid x:Name="RenderChart5" Width="200"/>
+            </materialDesign:Card>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="503" Margin="0,265,0,0" VerticalAlignment="Top" Width="204" Background="#FF424040">
+            <Label x:Name="lbl_X_val" Content="X : " Foreground="white" HorizontalAlignment="Left" Margin="0,2,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.539"/>
+            <Label x:Name="lbl_Y_val" Content="Y : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_Z_val" Content="Z : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_hor_spd" Content="Horizontal speed :" Foreground="white" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,0,0"/>
+            <Label x:Name="lbl_ver_spd" Content="Vertical speed : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left"  Height="503" Margin="209,265,0,0" VerticalAlignment="Top" Width="405" Orientation="Horizontal" Background="#FF6E6D6D">
+            <StackPanel>
+                <local:Gauge2 x:Name="gaugeControl2" HorizontalAlignment="Center" Width="390" Height="390" Margin="10"/>
+                <Border Margin="-5,-2,0,0" BorderBrush="Black" BorderThickness="2" Width="405" Height="94">
+                    <StackPanel Width="382" Height="88" Orientation="Horizontal">
+                        <StackPanel Width="190" Height="88">
+                            <Label Content="Orientation X: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                            <Label Content="Orientation Y: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                            <Label Content="Orientation Z: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                            <Label Content="Range : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                        </StackPanel>
+                        <StackPanel Width="190" Height="88">
+                            <Label Content="GPS Sat Count : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                            <Label Content="Hor Speed : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                            <Label Content="Ver Speed : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                            <Label Content="RSSI : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="Hidden_GUI" Visibility="Collapsed" HorizontalAlignment="Left" Height="503" Margin="209,265,0,0" VerticalAlignment="Top" Width="405" Orientation="Horizontal" Background="#FF6E6D6D">
+            <StackPanel Height="50" Width="400" Margin="0,-400,0,0" Background="White" Orientation="Horizontal">
+                <Button x:Name="btn_Arm" Content="Arm" Width="81" Margin="5,0,0,0" Height="30" Click="btn_Arm_Click"/>
+                <Button x:Name="btn_IdleRun" Content="Idle Run" Margin="5,0,0,0" Width="89"  Height="30" Click="btn_IdleRun_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" Height="503" Margin="619,265,0,0" VerticalAlignment="Top" Width="405" Orientation="Horizontal" Background="#FF6E6D6D">
+            <materialDesign:Card Padding="32" Margin="10" Width="379" Height="464">
+                <Grid>
+                    
+                </Grid>
+            </materialDesign:Card>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

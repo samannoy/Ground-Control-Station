@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="MaterialDash.Gauge2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialDash"
+             mc:Ignorable="d" 
+             d:DesignHeight="390" d:DesignWidth="390">
+    <Canvas>
+
+        <Rectangle x:Name="arrow" HorizontalAlignment="Center" Height="940" VerticalAlignment="Top" Width="940" RenderTransformOrigin="0.502,0.482" Canvas.Left="-275" Canvas.Top="-267">
+            <Rectangle.Fill>
+                <ImageBrush>
+                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/HUD_variable-04.jpg</ImageBrush.ImageSource>
+                </ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle   Stroke="Transparent" HorizontalAlignment="Center" Height="390"  VerticalAlignment="Center" Width="390" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <ImageBrush>
+                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/HUD_fixed_red-03.png</ImageBrush.ImageSource>
+                </ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="pitch_indicator"  Stroke="Transparent" HorizontalAlignment="Center" Height="390"  VerticalAlignment="Center" Width="390" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Fill>
+                <ImageBrush>
+                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/HUD_lines-07.png</ImageBrush.ImageSource>
+                </ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="OSD_roll" Content="Roll : " Canvas.Left="10" Canvas.Top="336" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label x:Name="OSD_pitch" Content="Pitch : " Canvas.Left="10" Canvas.Top="358" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Rectangle Height="18" Canvas.Left="346" Stroke="#FF920707" Canvas.Top="4" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Rectangle x:Name="OSD_batt_indicator" Height="18" Canvas.Left="346" Stroke="#FFA02D2D" Canvas.Top="4" Width="25" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#FFA02D2D"/>
+        <Label x:Name="OSD_batt_level" Content="100%" Canvas.Left="350" FontSize="10" Foreground="#DDFFFFFF" HorizontalAlignment="Center" Canvas.Top="18" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.876"/>
+        <Rectangle x:Name="OSD_Compass" Stroke="Transparent" Height="94" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-4" RenderTransformOrigin="0.51,0.5">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="Uniform" TileMode="None">
+                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/Compass-2-04.png</ImageBrush.ImageSource>
+                </ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="34" Canvas.Left="30" Stroke="Transparent" Canvas.Top="34" Width="34" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.347">
+            <Rectangle.Fill>
+                <ImageBrush>
+                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/Compass_fixed-05.png</ImageBrush.ImageSource>
+                </ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+
+    </Canvas>
+</UserControl>
