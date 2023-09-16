@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroundControlStationV1", "GroundControlStationV1\GroundControlStationV1.csproj", "{77E35CC2-E49E-4C66-926F-DA8C719B192A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77E35CC2-E49E-4C66-926F-DA8C719B192A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E35CC2-E49E-4C66-926F-DA8C719B192A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E35CC2-E49E-4C66-926F-DA8C719B192A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E35CC2-E49E-4C66-926F-DA8C719B192A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9506620-EED0-465D-94AC-D3143EC137D6}
+	EndGlobalSection
+EndGlobal
