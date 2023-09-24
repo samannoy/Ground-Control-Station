@@ -5,8 +5,132 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroundControlStationV1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+      WindowStyle="None" 
+        Title="Ground Control Station" WindowState="Normal" Height="750" Width="1366" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+
+    <Grid Background="Black">
+        <StackPanel Height="45" Background="#FF171616" Orientation="Horizontal" Width="Auto" VerticalAlignment="Top">
+            <!-- Content for the topmost tab -->
+            <Image Width="90" Height="37" Margin="10,0,0,0" Source="\Images\Nexas-Logo.bmp"/>
+            <Button x:Name="btnHome" Content="Home" Height="30" Margin="10,0,0,0" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+            <Button x:Name="btnControls" Content="Controls" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
+            <Button x:Name="btnData" Content="Data analysis" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+            <Button x:Name="btnParameters" Content="Parameters" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
+            <Button x:Name="btnSettings" Content="Settings" Margin="5,0,0,0" Height="30" BorderBrush="RoyalBlue" Background="RoyalBlue"/>
+            <Button x:Name="btnSimulate" Content="Simulate" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
+            <Button x:Name="btnHelp" Content="Help" Margin="5,0,0,0" Height="30" BorderBrush="RoyalBlue" Background="RoyalBlue"/>
+
+
+        </StackPanel>
+        <DockPanel Height="45" Background="#FF171616" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <StackPanel HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="5,0" Orientation="Horizontal">
+                <ComboBox x:Name="comboBoxCOMPorts" Text="-- Select Port -- " Margin="0,0,10,0" VerticalAlignment="Center" IsEditable="True" IsReadOnly="True" Background="#FF72A1B9" FontWeight="Bold" Height="30" />
+                <Button x:Name="btnConnect"  Content="Connect" Margin="0,0,0,0" VerticalAlignment="Center" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+                <Button x:Name="btnExit" Content="Exit" Margin="150,0,0,0" Height="30" Background="Maroon" BorderBrush="Maroon" Click="btnExit_Click" />
+            </StackPanel>
+        </DockPanel>
+        <!-- Content for the 6 plots -->
+        <Grid Height="215" Width="1366" Margin="0,45,0,0" VerticalAlignment="Top" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="220" Width="*"/>
+                <ColumnDefinition MinWidth="220" Width="*"/>
+                <ColumnDefinition MinWidth="220" Width="*"/>
+                <ColumnDefinition MinWidth="220" Width="*"/>
+                <ColumnDefinition MinWidth="220" Width="*"/>
+                <ColumnDefinition MinWidth="220" Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Content in Column 0 -->
+            <Grid Grid.Column="0" Margin="5,0,0,0">
+                <TextBlock Text="Column 0 Content" Background="White" Foreground="Black"/>
+            </Grid>
+
+            <!-- Content in Column 1 -->
+            <Grid Grid.Column="1" Margin="5,0,0,0">
+                <TextBlock Text="Column 1 Content" Background="White" Foreground="Black"/>
+            </Grid>
+
+            <!-- Content in Column 2 -->
+            <Grid Grid.Column="2" Margin="5,0,0,0">
+                <TextBlock Text="Column 2 Content" Background="White" Foreground="Black"/>
+            </Grid>
+
+            <!-- Content in Column 3 -->
+            <Grid Grid.Column="3" Margin="5,0,0,0">
+                <TextBlock Text="Column 3 Content" Background="White" Foreground="Black"/>
+            </Grid>
+
+            <!-- Content in Column 4 -->
+            <Grid Grid.Column="4" Margin="5,0,0,0">
+                <TextBlock Text="Column 4 Content" Background="White" Foreground="Black"/>
+            </Grid>
+
+            <!-- Content in Column 5 -->
+            <Grid Grid.Column="5" Margin="5,0,5,0">
+                <TextBlock Text="Column 5 Content" Background="White" Foreground="Black"/>
+            </Grid>
+        </Grid>
+        <StackPanel Margin="0,265,0,0" Width="300" Background="#FF424040" HorizontalAlignment="Left">
+            <Label Content="AHRS Info " Foreground="white" HorizontalAlignment="Center" Margin="0,2,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_Roll" Content="Roll Angle: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_Pitch" Content="Pitch Angle: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_Heading" Content="Heading : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+
+            <Label x:Name="lbl_Latitude" Content="Latitude: " Foreground="white" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_Longitude" Content="Longitude: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_Altitude" Content="Altitude: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            
+            <Label x:Name="lbl_GroundSpd" Content="Ground speed :" Foreground="white" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <Label x:Name="lbl_AirSpd" Content="Air speed : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_VerSpd" Content="Vertical speed : " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+           
+
+            <Label Content="Mission Info " Foreground="white" HorizontalAlignment="Center" Margin="0,2,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_MissionDur" Content="Mission Duration (s): " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_DistHome" Content="Distance From Home (m): " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_DistWP" Content="Distance to Next WP (m): " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+
+            <Label Content="GPS Info " Foreground="white" HorizontalAlignment="Center" Margin="0,2,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_SatCount" Content="Number of satellites: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_HDOP" Content="HDOP: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_GPSFix" Content="GPS Fix: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+
+        </StackPanel>
+        <Grid Width="1066" Margin="300,265,0,0" Background="LightGray" Height="485">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="485" Width="1066">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- First child StackPanel -->
+
+                <StackPanel Grid.Column="0">
+                    <!-- Content for the first child StackPanel -->
+                    <local:HUD x:Name="gaugeControl2" Width="514" Height="465" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+                <!-- Second child StackPanel -->
+                <StackPanel Grid.Column="1">
+                    <StackPanel Background="Green" Width="514" Height="465" Margin="10,10,10,15"/>
+                    <!-- Content for the second child StackPanel -->
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+
+        <StackPanel Width="Auto" Background="#FF6893D8"  VerticalAlignment="Bottom" Height="15">
+            <TextBlock Text="© NEXAS 2023" Margin="0,0,5,0" Background="Transparent" Foreground="Black" HorizontalAlignment="Right"/>
+        </StackPanel>
 
     </Grid>
 </Window>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace GroundControlStationV1
 {
     /// <summary>
@@ -23,6 +24,42 @@ namespace GroundControlStationV1
         public MainWindow()
         {
             InitializeComponent();
+
+            // The following section decides to maximize or keep the screen normal based on screen resolution
+            // Get the screen's working area
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+            // Check if the screen resolution is 1366x768 or smaller
+            if (screenWidth <= 1366 && screenHeight <= 768)
+            {
+                // Set WindowState to Maximized
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                // Set WindowState to Normal
+                WindowState = WindowState.Normal;
+                WindowStartupLocation=WindowStartupLocation.CenterScreen;
+            }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you want to close the application?", "Exit Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                // Close the application
+                Application.Current.Shutdown();
+            }
+            // If the user selects "No" or closes the dialog, the application will not close.
+        }
+
     }
 }
