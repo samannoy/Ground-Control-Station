@@ -10,12 +10,54 @@
     <Compile Update="HUD.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="LiveChart1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Plot_0.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Plot_1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Plot_2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Plot_3.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Plot_4.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Plot_5.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="HUD.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="LiveChart1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Plot_0.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Plot_1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Plot_2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Plot_3.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Plot_4.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Plot_5.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
