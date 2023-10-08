@@ -7,6 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="220" d:DesignWidth="220">
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection5}" />
+        <lvc:CartesianChart Series="{Binding SeriesCollection5}" DisableAnimations="True">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Time (sec)" MinValue="0" MaxValue="20" >
+                    <!-- Add gridlines for specific X values -->
+                    <lvc:Axis.Sections>
+                        <!-- Add a section for each X value where you want a gridline -->
+                        <lvc:AxisSection Value="5" Stroke="Gray" StrokeThickness="1" />
+                        <lvc:AxisSection Value="10" Stroke="Gray" StrokeThickness="1" />
+                        <lvc:AxisSection Value="15" Stroke="Gray" StrokeThickness="1" />
+                        <!-- Add more sections as needed -->
+                    </lvc:Axis.Sections>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Altitude (m)" MinValue="-30" MaxValue="30">
+                    <lvc:Axis.Sections>
+                        <!-- Add a section for each X value where you want a gridline -->
+                        <lvc:AxisSection Value="-90" Stroke="Gray" StrokeThickness="1" />
+                        <lvc:AxisSection Value="0" Stroke="Gray" StrokeThickness="1" />
+                        <lvc:AxisSection Value="90" Stroke="Gray" StrokeThickness="1" />
+                        <!-- Add more sections as needed -->
+                    </lvc:Axis.Sections>
+                    <!-- Set the separator step to control the interval between gridlines -->
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Step="10" />
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>

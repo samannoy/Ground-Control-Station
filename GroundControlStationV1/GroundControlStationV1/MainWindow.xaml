@@ -20,12 +20,12 @@
         <StackPanel Height="45" Background="#FF171616" Orientation="Horizontal" Width="Auto" VerticalAlignment="Top">
             <!-- Content for the topmost tab -->
             <Image Width="90" Height="37" Margin="10,0,0,0" Source="\Images\Nexas-Logo.bmp"/>
-            <Button x:Name="btnHome" Content="Home" Height="30" Margin="10,0,0,0" Background="RoyalBlue" BorderBrush="RoyalBlue" />
-            <Button x:Name="btnControls" Content="Controls" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
-            <Button x:Name="btnData" Content="Data analysis" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
-            <Button x:Name="btnParameters" Content="Parameters" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
-            <Button x:Name="btnSettings" Content="Settings" Margin="5,0,0,0" Height="30" BorderBrush="RoyalBlue" Background="RoyalBlue"/>
-            <Button x:Name="btnSimulate" Content="Simulate" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
+            <Button x:Name="btnHome" Content="Home" Height="30" Margin="10,0,0,0" Background="RoyalBlue" BorderBrush="RoyalBlue" Click="btnHomeClick" />
+            <Button x:Name="btnControls" Content="Controls" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" Click="btnControlsClick"/>
+            <Button x:Name="btnData" Content="Data analysis" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" IsEnabled="False" />
+            <Button x:Name="btnParameters" Content="Parameters" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" IsEnabled="False"/>
+            <Button x:Name="btnSettings" Content="Settings" Margin="5,0,0,0" Height="30" BorderBrush="RoyalBlue" Background="RoyalBlue" IsEnabled="False"/>
+            <Button x:Name="btnSimulate" Content="Simulate" Margin="5,0,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" IsEnabled="False"/>
             <Button x:Name="btnInfo" Content="Info" Margin="5,0,0,0" Height="30" BorderBrush="RoyalBlue" Background="RoyalBlue"/>
 
 
@@ -37,7 +37,7 @@
                 </Button>
                 <ComboBox x:Name="comboBoxCOMPorts" Text="-- Select Port -- " Margin="0,0,10,0" VerticalAlignment="Center" IsEditable="True" IsReadOnly="True" Background="#FF72A1B9" FontWeight="Bold" Height="30" />
                 <Button x:Name="btnConnect"  Content="Connect" Margin="0,0,0,0" VerticalAlignment="Center" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" Click="btnConnect_Click" />
-                <Button x:Name="btnExit" Content="Exit" Margin="150,0,0,0" Height="30" Background="Maroon" BorderBrush="Maroon" Click="btnExit_Click" />
+                <Button x:Name="btnExit" Content="Exit" Margin="150,0,0,0" Height="30" Background="Maroon" BorderBrush="Maroon" Click="btnExit_Click" IsCancel="True" />
             </StackPanel>
         </DockPanel>
         <!-- Content for the 6 plots -->
@@ -53,36 +53,42 @@
 
             <!-- Content in Column 0 -->
             <Grid Grid.Column="0" Margin="5,0,0,0">
-                <Grid x:Name="RenderChart0"/>
+                <Label Content="Roll Angle" Foreground="Gray" HorizontalAlignment="Center" Margin="25,0,0,0"/>
+                <Grid Margin="0,15,0,0" x:Name="RenderChart0"/>
             </Grid>
 
             <!-- Content in Column 1 -->
             <Grid Grid.Column="1" Margin="5,0,0,0">
-                <Grid x:Name="RenderChart1"/>
+                <Label Content="Pitch Angle" Foreground="Gray" HorizontalAlignment="Center" Margin="25,0,0,0"/>
+                <Grid Margin="0,15,0,0" x:Name="RenderChart1"/>
             </Grid>
 
             <!-- Content in Column 2 -->
             <Grid Grid.Column="2" Margin="5,0,0,0">
-                <Grid x:Name="RenderChart2"/>
+                <Label Content="Groundspeed" Foreground="Gray" HorizontalAlignment="Center" Margin="25,0,0,0"/>
+                <Grid Margin="0,15,0,0" x:Name="RenderChart2"/>
             </Grid>
 
             <!-- Content in Column 3 -->
             <Grid Grid.Column="3" Margin="5,0,0,0">
-                <Grid x:Name="RenderChart3"/>
+                <Label Content="IMU Accelerometer" Foreground="Gray" HorizontalAlignment="Center" Margin="25,0,0,0"/>
+                <Grid Margin="0,15,0,0" x:Name="RenderChart3"/>
             </Grid>
 
             <!-- Content in Column 4 -->
             <Grid Grid.Column="4" Margin="5,0,0,0">
-                <Grid x:Name="RenderChart4"/>
+                <Label Content="IMU Gyroscope" Foreground="Gray" HorizontalAlignment="Center" Margin="25,0,0,0"/>
+                <Grid Margin="0,15,0,0" x:Name="RenderChart4"/>
             </Grid>
 
             <!-- Content in Column 5 -->
             <Grid Grid.Column="5" Margin="5,0,5,0">
-                <Grid x:Name="RenderChart5"/>
+                <Label Content="Altitude" Foreground="Gray" HorizontalAlignment="Center" Margin="25,0,0,0"/>
+                <Grid Margin="0,15,0,0" x:Name="RenderChart5"/>
             </Grid>
         </Grid>
 
-        <StackPanel Margin="0,278,0,0" Width="300" Background="#FF424040" HorizontalAlignment="Left">
+        <StackPanel x:Name="Raw_Data_Panel" Visibility="Visible" Margin="0,278,0,0" Width="300" Background="Black" HorizontalAlignment="Left">
             <Label Content="AHRS Info " Foreground="white" HorizontalAlignment="Center" Margin="0,2,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <Label x:Name="lbl_Roll" Content="Roll Angle: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <Label x:Name="lbl_Pitch" Content="Pitch Angle: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
@@ -109,6 +115,42 @@
             <Label x:Name="lbl_RSSI" Content="RSSI: " Foreground="white" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top"/>
 
         </StackPanel>
+        <StackPanel x:Name="Buttons_Panel" Visibility="Collapsed" Margin="0,278,0,0" Width="300" Background="Black" HorizontalAlignment="Left">
+            <StackPanel>
+                <Label Content="Control Panel" Foreground="white" HorizontalAlignment="Center" Margin="0,5,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnArmDisarm" Content="Arm" Margin="5,5,0,0" Height="30" Background="DarkRed" BorderBrush="DarkRed" Click="btnArmDisarmClick" />
+                <Button x:Name="btnCalibrateLevel" Content="Calibrate Level" Margin="15,5,0,0" Height="30" Background="DarkGreen" BorderBrush="DarkGreen" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="btnMotorTest" Content="Run Motors at Idle" Margin="5,5,0,0" Height="30" Background="DarkOliveGreen" BorderBrush="DarkOliveGreen" />
+                <Button x:Name="btnCalibrateGyro" Content="Calibrate Gyros" Margin="15,5,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnCalibrateCompass" Content="Calibrate Compass" Margin="5,5,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" IsEnabled="False" />
+                
+            </StackPanel>
+            <StackPanel>
+                <Label Content="GPS Guided Navigation" Foreground="white" HorizontalAlignment="Center" Margin="0,15,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="btnSetMode" Content="Set to Auto" Margin="5,5,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+                <Button x:Name="btnSetHome" Content="Set Home" Margin="15,5,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="btnAutoTakeoff" Content="Auto Take Off" Margin="5,5,0,0" Height="30" Background="Purple" BorderBrush="Purple" />
+                <Button x:Name="btnRTL" Content="Return to Launch" Margin="15,5,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Mission Specifications" Foreground="white" HorizontalAlignment="Center" Margin="0,15,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="btnStartStopTimer" Content="Start Mission Timer" Margin="5,5,0,0" Height="30" Background="MidnightBlue" BorderBrush="MidnightBlue" Click="btnStartStopTimer_Click" />
+                <Button x:Name="btnResetTimer" Content="Reset Timer" Margin="15,5,0,0" Height="30" Background="RoyalBlue" BorderBrush="RoyalBlue" />
+            </StackPanel>
+        </StackPanel>
+        
         <Grid Width="1066" Margin="300,255,0,0" Background="Transparent" Height="485">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="485" Width="1066">
                 <Grid.ColumnDefinitions>

@@ -23,7 +23,7 @@ namespace GroundControlStationV1
     public partial class LiveChart1 : UserControl
     {
         public SeriesCollection SeriesCollection { get; set; }
-        public string[]? Labels { get; set; }
+        public string[] Labels { get; set; }
 
         public LiveChart1()
         {

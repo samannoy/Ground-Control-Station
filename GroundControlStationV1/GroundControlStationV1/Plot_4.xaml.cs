@@ -24,7 +24,7 @@ namespace GroundControlStationV1
     {
 
         public SeriesCollection SeriesCollection4 { get; set; }
-        public string[]? Labels { get; set; }
+        public string[] Labels { get; set; }
 
         public Plot_4()
         {
@@ -34,20 +34,20 @@ namespace GroundControlStationV1
             {
                 new LineSeries
                 {
-                    Title = "Series 1",
-                    Values = new ChartValues<double> { 4, 6, 5, 2 ,4 },
+                    Title = "Set",
+                    Values = new ChartValues<double> { 4, 6, 5, 2 ,4, 4, 6, 5, 2 ,4,4, 6, 5, 2 ,4, 4, 6, 5, 2 ,4 },
                     PointGeometry = null
                 },
                 new LineSeries
                 {
-                    Title = "Series 2",
-                    Values = new ChartValues<double> { 6, 7, 3, 4 ,6 },
+                    Title = "Current",
+                    Values = new ChartValues<double> { 6, 7, 3, 4 ,6, 11, 15, 13, 7, 6, 6, 7, 3, 4, 6, 11, 15, 13, 7, 6},
                     PointGeometry = null
                 },
 
             };
 
-            //Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
+            Labels = new[] { "Label 1", "Label 2", "Label 3", "Label 4", "Label 5" };
 
             DataContext = this;
         }
