@@ -11,8 +11,7 @@
 
         <Rectangle x:Name="arrow" HorizontalAlignment="Center" Height="940" VerticalAlignment="Top" Width="940" RenderTransformOrigin="0.502,0.482" Canvas.Left="-213" Canvas.Top="-228">
             <Rectangle.Fill>
-                <ImageBrush>
-                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/HUD_variable-04.jpg</ImageBrush.ImageSource>
+                <ImageBrush ImageSource="Images\HUD_bg.jpg">
                 </ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -23,53 +22,64 @@
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform Y="1"/>
+                    <TranslateTransform Y="-0.5"/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
             <Rectangle.Fill>
-                <ImageBrush>
-                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/HUD_fixed_red-03.png</ImageBrush.ImageSource>
+                <ImageBrush ImageSource="Images/HUD_overlay_rotate.png">
+                    
                 </ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="pitch_indicator"  Stroke="Transparent" HorizontalAlignment="Left" Height="465"  VerticalAlignment="Top" Width="514" RenderTransformOrigin="0.5,0.5" Canvas.Left="0">
+        <Rectangle x:Name="pitch_indicator"  Stroke="Transparent" HorizontalAlignment="Center" Height="465"  VerticalAlignment="Top" Width="514" RenderTransformOrigin="0.5,0.5" Canvas.Left="0" Canvas.Top="1">
             <Rectangle.Fill>
-                <ImageBrush>
-                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/HUD_lines-07.png</ImageBrush.ImageSource>
+                <ImageBrush ImageSource="Images/HUD_overlay_translate.png">
                 </ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="OSD_roll" Content="Roll : " Canvas.Left="10" Canvas.Top="360" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="OSD_pitch" Content="Pitch : " Canvas.Left="10" Canvas.Top="380" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="OSD_Altitude" Content="Altitude : " Canvas.Left="10" Canvas.Top="400" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="OSD_Heading" Content="Heading : " Canvas.Left="10" Canvas.Top="109" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OSD_roll" Content="Roll : " Canvas.Left="95" Canvas.Top="312" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="OSD_pitch" Content="Pitch : " Canvas.Left="95" Canvas.Top="332" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OSD_Altitude" Content="Altitude : " Canvas.Left="95" Canvas.Top="352" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OSD_Heading" Content="Heading : " Canvas.Left="377" Canvas.Top="156" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="98">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
         <Label x:Name="OSD_SatCount" Content="Satellites : " Canvas.Left="95" Canvas.Top="444" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="OSD_GPSFix" Content="GPS Fix : " Canvas.Left="225" Canvas.Top="444" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="OSD_Arming" Content="DISARMED" Canvas.Left="435" Canvas.Top="444" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="OSD_Mode" Content="Mode" Canvas.Left="425" Canvas.Top="191" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OSD_Mode" Content="Mode" Canvas.Left="419" Canvas.Top="189" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="16"/>
 
-        <Label x:Name="OSD_AirSpeed" Content="Air Speed : " Canvas.Left="384" Canvas.Top="345" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="OSD_GroundSpeed" Content="Grnd Speed : " Canvas.Left="384" Canvas.Top="365" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="OSD_VerticalSpeed" Content="Ver Speed" Canvas.Left="384" Canvas.Top="385" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OSD_AirSpeed" Content="Air Speed : " Canvas.Left="375" Canvas.Top="308" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="OSD_GroundSpeed" Content="Grnd Speed : " Canvas.Left="375" Canvas.Top="328" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="OSD_VerticalSpeed" Content="Ver Speed" Canvas.Left="375" Canvas.Top="348" Foreground="#DDE21818" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
 
 
-        <Rectangle Height="18" Canvas.Left="405" Stroke="#FF920707" Canvas.Top="25" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Rectangle x:Name="OSD_batt_indicator" Height="18" Canvas.Left="405" Stroke="#FFA02D2D" Canvas.Top="25" Width="25" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFA02D2D"/>
-        <Label x:Name="OSD_batt_level" Content="100%" Canvas.Left="409" FontSize="10" Foreground="#DDFFFFFF" HorizontalAlignment="Left" Canvas.Top="39" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.876"/>
-        <Label x:Name="OSD_BatteryVoltage" Content="22.80 V" Canvas.Left="450" FontSize="10" Foreground="#DDFFFFFF" HorizontalAlignment="Center" Canvas.Top="23" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.876"/>
-
-        <Rectangle x:Name="OSD_Compass" Stroke="Transparent" Height="94" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" RenderTransformOrigin="0.51,0.5" Canvas.Top="10">
+        <Rectangle Height="28" Canvas.Left="7"  Canvas.Top="16" Width="61" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Rectangle.Fill>
-                <ImageBrush Stretch="Uniform" TileMode="None">
-                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/Compass-2-04.png</ImageBrush.ImageSource>
+                <ImageBrush Stretch="Uniform" TileMode="None" ImageSource="Images\Battery.png">
                 </ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Height="34" Canvas.Left="44" Stroke="Transparent" Canvas.Top="44" Width="34" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.347">
+
+        <Label x:Name="OSD_batt_level" Content="100%" Canvas.Left="18" FontSize="10" Foreground="Black" HorizontalAlignment="Center" Canvas.Top="38" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.876" FontFamily="Arial Black"/>
+        <Label x:Name="OSD_BatteryVoltage" Content="22.80 V" Canvas.Left="68" FontSize="10" Foreground="Black" HorizontalAlignment="Left" Canvas.Top="18" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.876" FontFamily="Arial Black"/>
+
+        <Rectangle x:Name="OSD_Compass" Stroke="Transparent" Height="131" Width="147" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="349" RenderTransformOrigin="0.52,0.552" Canvas.Top="16">
             <Rectangle.Fill>
-                <ImageBrush>
-                    <ImageBrush.ImageSource>J:/G drive backup/Samannoy/IEM/Startup/HUD/Images/Compass_fixed-05.png</ImageBrush.ImageSource>
+                <ImageBrush Stretch="Uniform" TileMode="None" ImageSource="Images\Compass.png">
+                </ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="47" Canvas.Left="401" Stroke="Transparent" Canvas.Top="65" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.496">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Images\Heading.png">
                 </ImageBrush>
             </Rectangle.Fill>
         </Rectangle>

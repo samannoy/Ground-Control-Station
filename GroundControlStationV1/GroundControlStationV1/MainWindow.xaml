@@ -169,6 +169,7 @@
                 <!-- Second child StackPanel -->
                 <StackPanel Grid.Column="1">
                     <StackPanel Background="LightBlue" Width="530" Height="465" Margin="-10,10,10,15"/>
+
                     <!-- Content for the second child StackPanel -->
                 </StackPanel>
             </Grid>

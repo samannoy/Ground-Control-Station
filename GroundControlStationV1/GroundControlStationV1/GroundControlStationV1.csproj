@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Heading.png" />
+    <None Remove="Images\Battery.png" />
+    <None Remove="Images\Compass.bmp" />
+    <None Remove="Images\Compass.png" />
+    <None Remove="Images\Heading.png" />
+    <None Remove="Images\HUD_bg.jpg" />
+    <None Remove="Images\HUD_overlay_rotate.png" />
+    <None Remove="Images\HUD_overlay_translate.png" />
     <None Remove="Images\Nexas-Logo.bmp" />
   </ItemGroup>
 
@@ -21,6 +29,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Heading.png" />
+    <Resource Include="Images\Battery.png" />
+    <Resource Include="Images\Compass.png" />
+    <Resource Include="Images\Heading.png" />
+    <Resource Include="Images\HUD_bg.jpg" />
+    <Resource Include="Images\HUD_overlay_rotate.png" />
+    <Resource Include="Images\HUD_overlay_translate.png" />
     <Resource Include="Images\Nexas-Logo.bmp" />
   </ItemGroup>
 

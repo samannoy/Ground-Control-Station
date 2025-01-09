@@ -38,7 +38,7 @@ namespace GroundControlStationV1
             double battery = newValue3;
             OSD_roll.Content = "Roll : " + roll + "°";
             OSD_pitch.Content = "Pitch : " + pitch + "°";
-            OSD_batt_indicator.Width = batteryPercentageIndicatorCalculator(battery);
+            //OSD_batt_indicator.Width = batteryPercentageIndicatorCalculator(battery);
             OSD_batt_level.Content = battery + "%";
         }
         public void UpdateCompass(double newValue)

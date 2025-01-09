@@ -97,12 +97,12 @@ namespace GroundControlStationV1
                     lbl_Roll.Content = "Roll Angle : " + values[0];
                     lbl_Pitch.Content = "Pitch Angle : " + values[1];
                     lbl_Heading.Content = "Heading : " + values[2];
-                    //lbl_hor_spd.Content = "Horizontal speed : " + values[3];
-                    //lbl_ver_spd.Content = "Vertical speed : " + values[4];
+                    //lbl_GroundSpd.Content = "Ground speed (m/s): " + values[3];
+                    //lbl_VerSpd.Content = "Vertical speed (m/s): " + values[4];
 
                    // gaugeControl.UpdateGaugeValue(newValue);
                     //gaugeControl2.UpdateGaugeRotation(newValue);
-                    //gaugeControl2.UpdateOSD(newValue, newValue2, newValue3);
+                    //HUD_1.UpdateOSD(newValue, newValue2, newValue3);
                     //gaugeControl2.UpdateGaugeTranslation(newValue, newValue2);
                     //gaugeControl2.UpdateCompass(newValue);
                     //UpdateLiveChart_set(values[0]);
@@ -350,6 +350,11 @@ namespace GroundControlStationV1
                 // Update the state to armed
                 isArmed = true;
             }
+        }
+
+        private void HUD_1_Loaded()
+        {
+
         }
     }
 }
